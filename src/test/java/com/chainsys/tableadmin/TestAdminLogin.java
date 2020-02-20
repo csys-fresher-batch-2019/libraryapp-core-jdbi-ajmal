@@ -1,4 +1,6 @@
+package com.chainsys.tableadmin;
 import java.util.Scanner;
+
 
 import com.chainsys.libraryapp.service.AdminDetailsService;
 
@@ -12,7 +14,11 @@ public class TestAdminLogin {
 			System.out.print("Enter your Password : ");
 			String password=sc.next();
 			Boolean out=ob.userLogin(mailId, password);
-			System.out.println(out);
+			if(out)
+			{
+				System.out.println("LoggedIn");
+			}
+			sc.close();
 	}
 
 }

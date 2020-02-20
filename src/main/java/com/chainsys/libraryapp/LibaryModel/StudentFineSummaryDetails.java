@@ -1,6 +1,6 @@
 package com.chainsys.libraryapp.LibaryModel;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public class StudentFineSummaryDetails {
 	
@@ -9,8 +9,8 @@ public class StudentFineSummaryDetails {
 	private String bookName;
 	private int fineAmount;
 	private String bookCategory;
-	private Date issueDate;
-	private Date dueDate;
+	private LocalDate issueDate;
+	private LocalDate dueDate;
 	private int totalFineAmount;
 	public int getTotalFineAmount() {
 		return totalFineAmount;
@@ -48,16 +48,16 @@ public class StudentFineSummaryDetails {
 	public void setBookCategory(String bookCategory) {
 		this.bookCategory = bookCategory;
 	}
-	public Date getIssueDate() {
+	public LocalDate getIssueDate() {
 		return issueDate;
 	}
-	public void setIssueDate(Date issueDate) {
+	public void setIssueDate(LocalDate issueDate) {
 		this.issueDate = issueDate;
 	}
-	public Date getDueDate() {
+	public LocalDate getDueDate() {
 		return dueDate;
 	}
-	public void setDueDate(Date dueDate) {
+	public void setDueDate(LocalDate dueDate) {
 		this.dueDate = dueDate;
 	}
 	@Override

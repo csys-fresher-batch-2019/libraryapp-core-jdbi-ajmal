@@ -1,5 +1,28 @@
 package com.chainsys.libraryapp.dao.mapper;
 
-public class SummaryDetailsRowMapper {
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.jdbi.v3.core.mapper.RowMapper;
+import org.jdbi.v3.core.statement.StatementContext;
+
+import com.chainsys.libraryapp.LibaryModel.SummaryDetails;
+
+public class SummaryDetailsRowMapper implements RowMapper<SummaryDetails>{
+	
+
+	public SummaryDetails map(ResultSet rs, StatementContext ctx) throws SQLException {
+		SummaryDetails ob = new SummaryDetails();
+		ob.setBookCount(rs.getInt("book_count"));
+		ob.setBookId(rs.getInt("book_id"));
+		ob.setStudentId(rs.getInt("std_id"));
+		ob.setFineAmount(rs.getInt("fine_amt"));
+		ob.setActiveStatus(rs.getInt("status"));
+		ob.setReturnedDate(rs.getDate("returned_date"));
+		ob.setIssueDate(rs.getDate("issue_date"));
+		ob.setDueDate(rs.getDate("due_date"));
+		return ob;
+	}
+
 
 }

@@ -19,10 +19,18 @@ public class BookDetailsService {
 	}
 
 	public void updateBookCopies(int bookId,int bookCopies) throws Exception {
+		Integer cont = bookDetailsDAO.findByBookId(bookId);
+		if (cont == null) {
+			throw new Exception("Invalid Book Id");
+		}
 		bookDetailsDAO.updateBookCopies(bookId, bookCopies);
 	}
 
 	public BookDetails displayBook(int bookId) throws Exception {
+		Integer cont = bookDetailsDAO.findByBookId(bookId);
+		if (cont == null) {
+			throw new Exception("Invalid Book Id");
+		}
 		return bookDetailsDAO.displayBook(bookId);
 	}
 

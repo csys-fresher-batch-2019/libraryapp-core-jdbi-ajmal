@@ -6,7 +6,7 @@ import java.util.Scanner;
 import com.chainsys.libraryapp.LibaryModel.SummaryDetailsDueDate;
 import com.chainsys.libraryapp.service.SummaryDetailsService;
 
-public class TestDisplayStudentNotReturnedBook {
+public class TestUnReturnedBookDetails {
 
 	public static void main(String[] args) throws Exception {
 		SummaryDetailsService ob=new SummaryDetailsService();
@@ -14,10 +14,10 @@ public class TestDisplayStudentNotReturnedBook {
 		Scanner sc=new Scanner(System.in);
 		int bookId=sc.nextInt();
 		ArrayList<SummaryDetailsDueDate> out=new ArrayList<>();
-		out=ob.displayStudentNotReturnedBook(bookId);
+		out=ob.unReturnedBookDetails(bookId);
 		if(out.isEmpty())
 		{
-			System.out.println("No books to return");
+			System.out.println("No Book has been Taken");
 		}
 		else
 		{

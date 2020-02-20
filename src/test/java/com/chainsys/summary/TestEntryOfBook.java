@@ -13,15 +13,10 @@ public class TestEntryOfBook {
 		int bookId = sc.nextInt();
 		System.out.print("Enter Student ID : ");
 		int studentId=sc.nextInt();
-		boolean out=ob.addNewEntry(studentId, bookId);
-		if(out)
-		{
-			System.out.println("Inserted");
-		}
-		else
-		{
-			System.out.println("You have already taken this book, Try another");
-		}
+		ob.addNewEntry(studentId, bookId);
+	System.out.println("Thanks for talking the book");
+	
+	
 		sc.close();
 
 	}

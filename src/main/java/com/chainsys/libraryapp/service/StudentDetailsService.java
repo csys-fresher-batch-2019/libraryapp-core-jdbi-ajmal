@@ -1,5 +1,6 @@
 package com.chainsys.libraryapp.service;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 import org.jdbi.v3.core.Jdbi;
@@ -19,10 +20,26 @@ public class StudentDetailsService {
 		studentDetailsDAO.addStudentDetails(studentdetails);
 	}
 	public StudentDetails displayStudentDetail(int studentId)throws Exception{
+		Integer contt = studentDetailsDAO.findByStudentId(studentId);
+		if (contt == null) {
+			throw new Exception("Invalid Student Id");
+		}
 		return studentDetailsDAO.displayStudentDetail(studentId);
 		}
 	public ArrayList<StudentDetails> displayAllStudents()throws Exception{
 		return studentDetailsDAO.displayAllStudents();
 	}
 
+	public Boolean studentLogin(int studentId,Date dateOfBirth)throws Exception{
+		Integer contt = studentDetailsDAO.findByStudentId(studentId);
+		if (contt == null) {
+			throw new Exception("Invalid Student Id");
+		}
+		Boolean valid=studentDetailsDAO.studentLogin(studentId, dateOfBirth);
+			if(valid == null) {
+				throw new Exception("Invalid Email/Date Of Birth");
+			}
+		return valid;
+		
+	}
 }

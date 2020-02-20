@@ -25,9 +25,8 @@ public interface StudentDetailsDAO {
 	 @RegisterRowMapper(StudentDetailsRowMapper.class)
 	public ArrayList<StudentDetails> displayAllStudents()throws DbException;
 	
-	@SqlQuery("select std_dob form student where std_id=?")
-	 @RegisterRowMapper(StudentDetailsRowMapper.class)
-	public Date studentLogin(int studentId)throws DbException;
+	@SqlQuery("select 1 form student where std_id=? and std_dob=?")	 
+	public Boolean studentLogin(int studentId,Date studentDOB)throws DbException;
 
 	@SqlQuery("select 1 from student where std_id=?")
 	public Integer findByStudentId(int studentId);

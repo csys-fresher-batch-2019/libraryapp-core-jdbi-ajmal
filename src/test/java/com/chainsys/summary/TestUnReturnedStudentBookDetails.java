@@ -6,7 +6,7 @@ import java.util.Scanner;
 import com.chainsys.libraryapp.LibaryModel.SummaryDetailsStudentDetails;
 import com.chainsys.libraryapp.service.SummaryDetailsService;
 
-public abstract class TestStudentNotReturnedBook {
+public abstract class TestUnReturnedStudentBookDetails {
 
 	public static void main(String[] args) throws Exception {
 		Scanner sc=new Scanner(System.in);
@@ -14,7 +14,7 @@ public abstract class TestStudentNotReturnedBook {
 		System.out.print("Enter the Student id : ");
 		int studentId=sc.nextInt();
 		
-		ArrayList<SummaryDetailsStudentDetails> out = ob.studentNotReturnedBook(studentId);
+		ArrayList<SummaryDetailsStudentDetails> out = ob.unReturnedStudentBookDetails(studentId);
 		if(out != null)
 		{
 			for (SummaryDetailsStudentDetails details : out) {

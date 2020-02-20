@@ -7,7 +7,7 @@ import lombok.Data;
 public class AdminDetails {
 private int adminId;
 private String adminName;
-private String admilMailId;
+private String adminMailId;
 private long adminMobileNo;
 private String adminGender;
 private LocalDate adminDOB;

@@ -8,7 +8,7 @@ import org.jdbi.v3.sqlobject.statement.SqlQuery;
 import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 
 import com.chainsys.libraryapp.LibaryModel.BookDetails;
-import com.chainsys.libraryapp.dao.mapper.BookRowMapper;
+import com.chainsys.libraryapp.dao.mapper.BookDetailsRowMapper;
 import com.chainsys.libraryapp.exception.DbException;
 
 public interface BookDetailsDAO {
@@ -20,16 +20,16 @@ public interface BookDetailsDAO {
 	 public void updateBookCopies(@Bind("bookId")int bookId,@Bind("bookCopies")int bookCopies)throws DbException;
 	 
 	 @SqlQuery("select * from books where book_id=?")
-	 @RegisterRowMapper(BookRowMapper.class)
+	 @RegisterRowMapper(BookDetailsRowMapper.class)
 	 public BookDetails displayBook(int bookId)throws DbException;
 	 
 	 @SqlQuery("select * from books")
-	 @RegisterRowMapper(BookRowMapper.class)
+	 @RegisterRowMapper(BookDetailsRowMapper.class)
 	 public ArrayList<BookDetails> displayAllBooks()throws DbException;
 	 
 
 	 @SqlQuery("select * from books where lower(book_name)like lower('%'||?||'%')")
-	 @RegisterRowMapper(BookRowMapper.class)
+	 @RegisterRowMapper(BookDetailsRowMapper.class)
 	 public ArrayList<BookDetails> searchByName(String bookName) throws DbException;
 
 	 @SqlQuery("select 1 from books where book_id=?")	 

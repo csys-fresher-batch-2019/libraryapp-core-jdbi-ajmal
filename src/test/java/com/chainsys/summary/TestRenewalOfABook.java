@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import com.chainsys.libraryapp.service.SummaryDetailsService;
 
-public class TestUpdateReturnRecord {
+public class TestRenewalOfABook {
 
 	public static void main(String[] args) throws Exception {
 		SummaryDetailsService ob=new SummaryDetailsService();
@@ -14,22 +14,21 @@ public class TestUpdateReturnRecord {
 		System.out.print("Enter the StudentId : ");
 		int studentId=sc.nextInt();
 		Integer fineAmount=ob.calculateFineAmount(studentId, bookId);
-		if(fineAmount != null)
-		{
-		System.out.println("Fine Amount = "+fineAmount +"\nDo you want to return (Y/N) - " );
+		System.out.println("Fine Amount = "+fineAmount+"\nDo you want to Renual the book (Y/N) - ");
 		String output=sc.next();
-		sc.close();
 		if(output.equalsIgnoreCase("Y"))
 		{
 			ob.updateReturnRecord(studentId, bookId,fineAmount);
-			System.out.println("Book Returned");
+			ob.addNewEntry(studentId, bookId);
+			System.out.println("Book Renawed");
 		}
 		else
 		{
 			System.out.println("ThankYou...!");
 		}
-		}
+		
 		sc.close();
+		
 
 	}
 

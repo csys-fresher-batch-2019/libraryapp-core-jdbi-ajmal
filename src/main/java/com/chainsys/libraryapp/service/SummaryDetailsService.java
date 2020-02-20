@@ -22,7 +22,7 @@ public class SummaryDetailsService {
 	
 	// private SummaryDetailsDAO summaryDetailsDAO=new SummaryDetailsDAOImp();
 
-	public boolean addNewEntry(int studentId, int bookId) throws Exception {
+	public void addNewEntry(int studentId, int bookId) throws Exception {
 
 		Integer cont = bookDetailsDAO.findByBookId(bookId);
 
@@ -35,21 +35,36 @@ public class SummaryDetailsService {
 			throw new Exception("Invalid Student Id");
 		}
 			
-		boolean bookTaken = bookTaken(studentId, bookId);
-		if (bookTaken) {
-			return summaryDetailsDAO.addNewEntry(studentId, bookId);
+		Integer bookTaken= summaryDetailsDAO.bookTaken(studentId, bookId);
+		
+		if (bookTaken==null ) {
+			 summaryDetailsDAO.addNewEntry(studentId, bookId);
 		}
-
-		return bookTaken;
+		else {
+			throw new Exception("You have Already taken the book");
+		}
+		
 	}
 
 	public Integer calculateFineAmount(int studentId, int bookId) throws Exception {
-		boolean bookTaken = bookTaken(studentId, bookId);
-		Integer fine = 0;
-		if (bookTaken) {
-			throw new Exception("You have not taken book");
+		Integer cont = bookDetailsDAO.findByBookId(bookId);
+		if (cont == null) {
+			throw new Exception("Invalid Book Id");
 		}
-		LocalDate dueDate = summaryDetailsDAO.calculateFineAmount(studentId, bookId);
+		Integer contt = studentDetailsDAO.findByStudentId(studentId);
+		if (contt == null) {
+			throw new Exception("Invalid Student Id");
+		}
+		//bookTaken(studentId, bookId);
+		Integer fine = 0;
+		//if (bookTaken) {
+			//throw new Exception("You have not taken book");
+		//}
+		LocalDate dueDate = summaryDetailsDAO.returnDueDate(studentId, bookId);
+		if(dueDate ==null)
+		{
+			throw new Exception("You have not taken the book");
+		}
 		LocalDate returnedDate = LocalDate.now();
 		if (returnedDate.isAfter(dueDate)) {
 			int diffInDays = (int) ChronoUnit.DAYS.between(dueDate, returnedDate);
@@ -66,34 +81,58 @@ public class SummaryDetailsService {
 		summaryDetailsDAO.updateReturnRecord(studentId, bookId, fineAmount);
 	}
 
-	public ArrayList<SummaryDetailsDueDate> displayStudentNotReturnedBook(int bookId) throws Exception {
+	public ArrayList<SummaryDetailsDueDate> unReturnedBookDetails(int bookId) throws Exception {
 		Integer cont = bookDetailsDAO.findByBookId(bookId);
 		if (cont == null) {
 			throw new Exception("Invalid Book Id");
 		}
-		return summaryDetailsDAO.displayStudentNotReturnedBook(bookId);
+		return summaryDetailsDAO.unReturnedBookDetails(bookId);
 	}
 
 	public int totalFineAmount() throws Exception {
 		return summaryDetailsDAO.totalFineAmount();
 	}
 
-	public ArrayList<SummaryDetailsStudentDetails> studentNotReturnedBook(int studentId) throws Exception {
+	public ArrayList<SummaryDetailsStudentDetails> unReturnedStudentBookDetails(int studentId) throws Exception {
 		Integer std=studentDetailsDAO.findByStudentId(studentId);
 		if(std==null)
 		{
 			throw new Exception("Invalid Student Id");
 		}
-		return summaryDetailsDAO.studentNotReturnedBook(studentId);
+		return summaryDetailsDAO.unReturnedStudentBookDetails(studentId);
 	}
 
-	public boolean bookTaken(int studentId, int bookId) throws Exception {
+	public void bookTaken(int studentId, int bookId) throws Exception {
 		Integer bookTaken = summaryDetailsDAO.bookTaken(studentId, bookId);
-		return bookTaken != null;
+		if(bookTaken !=null)
+		{
+			throw new Exception("You have not taken the book");
+		}
+		//return bookTaken != null;
 	}
 
 	public ArrayList<StudentFineSummaryDetails> totalFineAmountOfStudent(int studentId) throws Exception {
-		return summaryDetailsDAO.totalFineAmountOfStudent(studentId);
+		Integer std=studentDetailsDAO.findByStudentId(studentId);
+		LocalDate returnedDate=LocalDate.now();
+		if(std==null)
+		{
+			throw new Exception("Invalid Student Id");
+		}
+		ArrayList<StudentFineSummaryDetails> out=summaryDetailsDAO.totalFineAmountOfStudent(studentId);
+		for(StudentFineSummaryDetails details:out)
+		{
+			if (returnedDate.isAfter(details.getDueDate())) {
+				int diffInDays = (int) ChronoUnit.DAYS.between(details.getDueDate(), returnedDate);
+				int fineAmount = diffInDays * 2;
+				details.setFineAmount(fineAmount);
+
+			} else {
+				// System.out.println("No Due Pending");
+				
+			}
+		}
+		//return summaryDetailsDAO.totalFineAmountOfStudent(studentId);
+		return out;
 	}
 
 	public Integer noOfBooksAvailable(int bookId) throws Exception {
@@ -113,7 +152,7 @@ public class SummaryDetailsService {
 		int limit = summaryDetailsDAO.limitForStudent(studentId);
 		if(limit>5)
 		{
-			throw new Exception("You limit for talking the book has Exceeded");
+			throw new Exception("You limit for talking the books has Exceeded");
 		}
 		
 	}

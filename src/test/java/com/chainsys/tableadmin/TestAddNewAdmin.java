@@ -3,7 +3,7 @@ package com.chainsys.tableadmin;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-import com.chainsys.libraryapp.LibaryModel.AdminDetails;
+import com.chainsys.libraryapp.model.AdminDetails;
 import com.chainsys.libraryapp.service.AdminDetailsService;
 
 public abstract class TestAddNewAdmin {

@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 import org.jdbi.v3.core.Jdbi;
 
-import com.chainsys.libraryapp.LibaryModel.StudentDetails;
-import com.chainsys.libraryapp.Util.Connectionutil;
 import com.chainsys.libraryapp.dao.StudentDetailsDAO;
+import com.chainsys.libraryapp.model.StudentDetails;
+import com.chainsys.libraryapp.util.Connectionutil;
 
 public class StudentDetailsService {
 	

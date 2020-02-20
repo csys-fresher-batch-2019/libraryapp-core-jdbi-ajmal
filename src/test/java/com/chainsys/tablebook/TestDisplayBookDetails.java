@@ -2,7 +2,7 @@ package com.chainsys.tablebook;
 
 import java.util.Scanner;
 
-import com.chainsys.libraryapp.LibaryModel.BookDetails;
+import com.chainsys.libraryapp.model.BookDetails;
 import com.chainsys.libraryapp.service.BookDetailsService;
 
 public class TestDisplayBookDetails {

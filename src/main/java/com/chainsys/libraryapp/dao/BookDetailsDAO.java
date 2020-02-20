@@ -7,9 +7,9 @@ import org.jdbi.v3.sqlobject.customizer.Bind;
 import org.jdbi.v3.sqlobject.statement.SqlQuery;
 import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 
-import com.chainsys.libraryapp.LibaryModel.BookDetails;
 import com.chainsys.libraryapp.dao.mapper.BookDetailsRowMapper;
 import com.chainsys.libraryapp.exception.DbException;
+import com.chainsys.libraryapp.model.BookDetails;
 
 public interface BookDetailsDAO {
 	 

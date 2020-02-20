@@ -6,13 +6,13 @@ import java.util.ArrayList;
 
 import org.jdbi.v3.core.Jdbi;
 
-import com.chainsys.libraryapp.LibaryModel.StudentFineSummaryDetails;
-import com.chainsys.libraryapp.LibaryModel.SummaryDetailsDueDate;
-import com.chainsys.libraryapp.LibaryModel.SummaryDetailsStudentDetails;
-import com.chainsys.libraryapp.Util.Connectionutil;
 import com.chainsys.libraryapp.dao.BookDetailsDAO;
 import com.chainsys.libraryapp.dao.StudentDetailsDAO;
 import com.chainsys.libraryapp.dao.SummaryDetailsDAO;
+import com.chainsys.libraryapp.model.StudentFineSummaryDetails;
+import com.chainsys.libraryapp.model.SummaryDetailsDueDate;
+import com.chainsys.libraryapp.model.SummaryDetailsStudentDetails;
+import com.chainsys.libraryapp.util.Connectionutil;
 
 public class SummaryDetailsService {
 	static Jdbi jdbi = Connectionutil.getJdbi();

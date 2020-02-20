@@ -2,9 +2,9 @@ package com.chainsys.libraryapp.service;
 
 import org.jdbi.v3.core.Jdbi;
 
-import com.chainsys.libraryapp.LibaryModel.AdminDetails;
-import com.chainsys.libraryapp.Util.Connectionutil;
 import com.chainsys.libraryapp.dao.AdminDetailsDAO;
+import com.chainsys.libraryapp.model.AdminDetails;
+import com.chainsys.libraryapp.util.Connectionutil;
 
 public class AdminDetailsService {
 	

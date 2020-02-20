@@ -4,8 +4,8 @@ import org.jdbi.v3.sqlobject.customizer.BindBean;
 import org.jdbi.v3.sqlobject.statement.SqlQuery;
 import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 
-import com.chainsys.libraryapp.LibaryModel.AdminDetails;
 import com.chainsys.libraryapp.exception.DbException;
+import com.chainsys.libraryapp.model.AdminDetails;
 
 public interface AdminDetailsDAO {
 	

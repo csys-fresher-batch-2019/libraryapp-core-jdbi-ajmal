@@ -1,7 +1,6 @@
 package com.chainsys.tableadmin;
 import java.util.Scanner;
 
-
 import com.chainsys.libraryapp.service.AdminDetailsService;
 
 public class TestAdminLogin {

@@ -1,4 +1,4 @@
-package com.chainsys.libraryapp.Util;
+package com.chainsys.libraryapp.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

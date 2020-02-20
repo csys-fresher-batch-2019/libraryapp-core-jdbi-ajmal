@@ -3,7 +3,7 @@ package com.chainsys.summary;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.chainsys.libraryapp.LibaryModel.StudentFineSummaryDetails;
+import com.chainsys.libraryapp.model.StudentFineSummaryDetails;
 import com.chainsys.libraryapp.service.SummaryDetailsService;
 
 public class TetStudentFinedetails {

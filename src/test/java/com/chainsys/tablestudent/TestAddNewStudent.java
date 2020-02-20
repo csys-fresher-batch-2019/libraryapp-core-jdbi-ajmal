@@ -4,7 +4,7 @@ package com.chainsys.tablestudent;
 import java.sql.Date;
 import java.util.Scanner;
 
-import com.chainsys.libraryapp.LibaryModel.StudentDetails;
+import com.chainsys.libraryapp.model.StudentDetails;
 import com.chainsys.libraryapp.service.StudentDetailsService;
 
 public class TestAddNewStudent {

@@ -7,9 +7,9 @@ import org.jdbi.v3.sqlobject.config.RegisterRowMapper;
 import org.jdbi.v3.sqlobject.statement.SqlQuery;
 import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 
-import com.chainsys.libraryapp.LibaryModel.StudentDetails;
 import com.chainsys.libraryapp.dao.mapper.StudentDetailsRowMapper;
 import com.chainsys.libraryapp.exception.DbException;
+import com.chainsys.libraryapp.model.StudentDetails;
 
 
 public interface StudentDetailsDAO {

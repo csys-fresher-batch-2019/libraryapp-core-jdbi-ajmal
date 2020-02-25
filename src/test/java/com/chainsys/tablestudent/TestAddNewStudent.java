@@ -29,7 +29,7 @@ public class TestAddNewStudent {
 	    StudentDetails ob=new StudentDetails();
 	    ob.setStudentName(studentName);
 	    ob.setStudentDepatment(studentDepartment);
-	    ob.setDateOfBirth(date);
+	    ob.setDateOfBirth(date.toLocalDate());
 	    ob.setStudentMailId(studentMailId);
 	    ob.setMobileNumber(mobileNumber);
 	    ob.setYearOfJoin(yearOfJoin);

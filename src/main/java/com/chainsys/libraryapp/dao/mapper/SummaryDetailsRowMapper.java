@@ -18,9 +18,9 @@ public class SummaryDetailsRowMapper implements RowMapper<SummaryDetails>{
 		ob.setStudentId(rs.getInt("std_id"));
 		ob.setFineAmount(rs.getInt("fine_amt"));
 		ob.setActiveStatus(rs.getInt("status"));
-		ob.setReturnedDate(rs.getDate("returned_date"));
-		ob.setIssueDate(rs.getDate("issue_date"));
-		ob.setDueDate(rs.getDate("due_date"));
+		ob.setReturnedDate(rs.getDate("returned_date").toLocalDate());
+		ob.setIssueDate(rs.getDate("issue_date").toLocalDate());
+		ob.setDueDate(rs.getDate("due_date").toLocalDate());
 		return ob;
 	}
 

@@ -1,6 +1,6 @@
 package com.chainsys.libraryapp.model;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import lombok.Data;
 @Data
@@ -8,9 +8,9 @@ public class SummaryDetails {
 	private int bookCount;
 	private int bookId;
 	private int studentId;
-	private Date issueDate;
-	private Date dueDate;
-	private Date returnedDate;
+	private LocalDate issueDate;
+	private LocalDate dueDate;
+	private LocalDate returnedDate;
 	private int fineAmount;
 	private int activeStatus;
 }

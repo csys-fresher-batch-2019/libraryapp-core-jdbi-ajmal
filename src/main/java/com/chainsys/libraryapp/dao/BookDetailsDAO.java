@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.jdbi.v3.sqlobject.config.RegisterRowMapper;
 import org.jdbi.v3.sqlobject.customizer.Bind;
+import org.jdbi.v3.sqlobject.customizer.BindBean;
 import org.jdbi.v3.sqlobject.statement.SqlQuery;
 import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 
@@ -13,8 +14,8 @@ import com.chainsys.libraryapp.model.BookDetails;
 
 public interface BookDetailsDAO {
 	 
-	@SqlUpdate("insert into books(book_name,book_cat,book_author,book_edition,no_of_bks,no_of_pgs,purchased_date,book_price,book_id)values  (?,?,?,?,?,?,?,?,id_seq.nextval)")
-	public void addNewBook(BookDetails bookdetails)throws DbException;
+	@SqlUpdate("insert into books(book_name,book_cat,book_author,book_edition,no_of_bks,no_of_pgs,purchased_date,book_price,book_id)values  (:bookName,:bookCategory,:bookAutherName,:bookEdition,:bookCopies,:bookPages,:bookPublishedDate,:bookPrice,id_seq.nextval)")
+	public void addNewBook(@BindBean BookDetails bookdetails)throws DbException;
 	
 	@SqlUpdate("update books set no_of_bks=(no_of_bks+:bookCopies) where book_id=:bookId")
 	 public void updateBookCopies(@Bind("bookId")int bookId,@Bind("bookCopies")int bookCopies)throws DbException;

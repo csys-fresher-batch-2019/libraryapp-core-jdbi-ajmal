@@ -19,8 +19,8 @@ public class SummaryDetailsDueDateRowMapper implements RowMapper<SummaryDetailsD
 		ob.setMobileNumber(rs.getLong("std_mob_no"));
 		ob.setBookId(rs.getInt("book_id"));
 		ob.setBookName(rs.getString("book_name"));
-		ob.setIssueDate(rs.getDate("issue_date"));
-		ob.setDueDate(rs.getDate("due_date"));
+		ob.setIssueDate(rs.getDate("issue_date").toLocalDate());
+		ob.setDueDate(rs.getDate("due_date").toLocalDate());
 		return ob;
 		
 	}

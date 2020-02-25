@@ -1,6 +1,6 @@
 package com.chainsys.libraryapp.model;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import lombok.Data;
 @Data
@@ -11,8 +11,8 @@ public class SummaryDetailsDueDate {
 	private String studentDept;
 	private String bookName;
 	private long mobileNumber;
-	private Date issueDate;
-	private Date dueDate;
+	private LocalDate issueDate;
+	private LocalDate dueDate;
 @Override
 public String toString() {
 	return "SummaryDetailsDueDate [bookId=" + bookId + ", studentId=" + studentId + ", studentName=" + studentName

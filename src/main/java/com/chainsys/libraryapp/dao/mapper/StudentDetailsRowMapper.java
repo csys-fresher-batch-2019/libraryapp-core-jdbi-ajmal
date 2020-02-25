@@ -15,7 +15,7 @@ public class StudentDetailsRowMapper implements RowMapper<StudentDetails>{
 		ob.setStudentId(rs.getInt("std_id"));
 		ob.setStudentName(rs.getString("std_name"));
 		ob.setStudentDepatment(rs.getString("std_dept"));
-		ob.setDateOfBirth(rs.getDate("std_dob"));
+		ob.setDateOfBirth(rs.getDate("std_dob").toLocalDate());
 		ob.setStudentMailId(rs.getString("std_mail_id"));
 		ob.setMobileNumber(rs.getLong("std_mob_no"));
 		ob.setYearOfJoin(rs.getInt("joining_yr"));

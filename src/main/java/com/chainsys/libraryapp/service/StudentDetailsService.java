@@ -1,6 +1,6 @@
 package com.chainsys.libraryapp.service;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import org.jdbi.v3.core.Jdbi;
@@ -30,7 +30,7 @@ public class StudentDetailsService {
 		return studentDetailsDAO.displayAllStudents();
 	}
 
-	public Boolean studentLogin(int studentId,Date dateOfBirth)throws Exception{
+	public Boolean studentLogin(int studentId,LocalDate dateOfBirth)throws Exception{
 		Integer contt = studentDetailsDAO.findByStudentId(studentId);
 		if (contt == null) {
 			throw new Exception("Invalid Student Id");

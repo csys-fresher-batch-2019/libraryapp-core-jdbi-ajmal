@@ -15,8 +15,8 @@ public class SummaryDetailsStudentDetailsRowMapper implements RowMapper<SummaryD
 	ob.setStudentName(rs.getString("std_name"));
 	ob.setBookId(rs.getInt("book_id"));
 	ob.setBookName(rs.getString("book_name"));
-	ob.setIssueDate(rs.getDate("issue_date"));
-	ob.setDuedate(rs.getDate("due_date"));
+	ob.setIssueDate(rs.getDate("issue_date").toLocalDate());
+	ob.setDuedate(rs.getDate("due_date").toLocalDate());
 	return ob;
 
 }

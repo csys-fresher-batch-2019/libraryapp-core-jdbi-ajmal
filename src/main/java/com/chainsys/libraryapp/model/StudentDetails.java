@@ -1,6 +1,6 @@
 package com.chainsys.libraryapp.model;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import lombok.Data;
 @Data
@@ -8,7 +8,7 @@ public class StudentDetails {
 	private int studentId;
 	private String studentName;
 	private String studentDepatment;
-	private Date dateOfBirth;
+	private LocalDate dateOfBirth;
 	private String studentMailId;
 	private long mobileNumber;
 	private int yearOfJoin;

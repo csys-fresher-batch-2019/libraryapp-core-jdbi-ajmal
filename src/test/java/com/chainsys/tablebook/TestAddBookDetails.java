@@ -29,9 +29,9 @@ System.out.print("Entre values \nBook Name :");
     System.out.print("Pages of book : ");
     int bookPages=sc.nextInt();
     sc.nextLine();
-    System.out.print("Purchased Date : ");
-    String bookPurchasedDate = sc.next();
-    Date date = Date.valueOf(bookPurchasedDate);
+    System.out.print("Published Date : ");
+    String bookPublishedDate = sc.next();
+    Date date = Date.valueOf(bookPublishedDate);
     
 		BookDetails ob=new BookDetails();
 		ob.setBookName(bookName);
@@ -41,7 +41,7 @@ System.out.print("Entre values \nBook Name :");
 		ob.setBookPages(bookPages);
 		ob.setBookCopies(bookCopies);
 		ob.setBookPrice(bookPrice);
-		ob.setBookPurchasedDate(date);
+		ob.setBookPublishedDate(date.toLocalDate());
 		
 		
 		obj.addNewBook(ob);	

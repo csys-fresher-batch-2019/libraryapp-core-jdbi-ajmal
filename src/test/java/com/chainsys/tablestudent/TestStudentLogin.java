@@ -1,6 +1,6 @@
 package com.chainsys.tablestudent;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 import com.chainsys.libraryapp.service.StudentDetailsService;
@@ -14,7 +14,7 @@ public class TestStudentLogin {
 		int studentId=sc.nextInt();
 		System.out.print("Enter the Student DOB");
 		String date=sc.next();
-		Date dateOfBirth = Date.valueOf(date);
+		LocalDate dateOfBirth = LocalDate.parse(date);
 		Boolean out=ob.studentLogin(studentId, dateOfBirth);
 		if(out) {
 			System.out.println("LoggedIn");

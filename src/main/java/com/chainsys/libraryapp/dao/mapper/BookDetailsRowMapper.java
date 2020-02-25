@@ -18,7 +18,7 @@ public class BookDetailsRowMapper implements RowMapper<BookDetails>{
 		ob.setBookAutherName(rs.getString("book_author"));
 		ob.setBookEdition(rs.getInt("book_edition"));
 		ob.setBookPrice(rs.getInt("book_price"));
-		ob.setBookPurchasedDate(rs.getDate("purchased_date"));
+		ob.setBookPublishedDate(rs.getDate("purchased_date").toLocalDate());
 		ob.setBookCopies(rs.getInt("no_of_bks"));
 		ob.setBookPages(rs.getInt("no_of_pgs"));
 		return ob;

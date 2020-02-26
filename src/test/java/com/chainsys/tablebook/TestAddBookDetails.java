@@ -29,7 +29,7 @@ System.out.print("Entre values \nBook Name :");
     System.out.print("Pages of book : ");
     int bookPages=sc.nextInt();
     sc.nextLine();
-    System.out.print("Published Date : ");
+    System.out.print("Purchashed Date : ");
     String bookPublishedDate = sc.next();
     Date date = Date.valueOf(bookPublishedDate);
     
@@ -45,6 +45,7 @@ System.out.print("Entre values \nBook Name :");
 		
 		
 		obj.addNewBook(ob);	
+		System.out.println("Added New Book");
 		sc.close();
     
 	
